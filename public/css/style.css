@@ -112,3 +112,9 @@ body {
 .edit-btn2 {
     background-color: rgb(79, 226, 133) !important;
 }
+
+/* map */
+#map {
+    height: 300px;
+    width: 90vh;
+  }
