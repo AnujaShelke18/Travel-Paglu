@@ -25,4 +25,4 @@ router
 
 router.get("/logout", userControllers.logout);
 
-module.exports = router;
+module.exports = router; 

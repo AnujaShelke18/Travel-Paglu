@@ -115,6 +115,10 @@ body {
 
 /* map */
 #map {
-    height: 300px;
-    width: 90vh;
-  }
+  width: 500px;
+  height: 200px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+  

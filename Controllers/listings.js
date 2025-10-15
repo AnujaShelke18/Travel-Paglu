@@ -29,7 +29,8 @@ module.exports.showListing = async (req, res) => {
     return res.redirect("/listings");
   }
 
-  res.render("listings/show.ejs", { listing });
+  // ✅ Pass mapToken to EJS for client-side access
+  res.render("listings/show.ejs", { listing, mapToken });
 };
 
 // Create new listing
@@ -71,9 +72,7 @@ module.exports.createListing = async (req, res, next) => {
       owner: req.user._id,
     });
 
-    const savedListing = await newListing.save();
-    console.log(" New listing created:", savedListing);
-
+    await newListing.save();
     req.flash("success", "New Listing Created!");
     res.redirect("/listings");
   } catch (err) {
@@ -93,7 +92,6 @@ module.exports.renderEditForm = async (req, res) => {
     return res.redirect("/listings");
   }
 
-  // Generate blurred preview for existing image
   let originalImageUrl = listing.image.url.replace(
     "/upload",
     "/upload/w_250,e_blur:100"
@@ -114,7 +112,6 @@ module.exports.updateListing = async (req, res) => {
 
   const { listing: listingData } = req.body;
 
-  // Update fields
   Object.assign(listing, {
     title: listingData.title || listing.title,
     description: listingData.description || listing.description,
@@ -123,7 +120,6 @@ module.exports.updateListing = async (req, res) => {
     country: listingData.country || listing.country,
   });
 
-  // If a new image is uploaded
   if (req.file) {
     listing.image = { url: req.file.path, filename: req.file.filename };
   } else if (!listing.image?.url) {

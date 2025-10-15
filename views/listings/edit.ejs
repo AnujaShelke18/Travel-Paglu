@@ -38,7 +38,7 @@
     <% if (listing.image.url) { %>
         <div class="mb-3">
             <label class="form-label">Current Image:</label>
-            <img src="<%= originalImageUrl %>" class="img-fluid mb-2" style="max-height: 200";>
+            <img src="<%= originalImageUrl %>" class="img-fluid mb-2" style="max-height: 200px";>
             <input type="hidden" name="listing[image][url]" value="<%= listing.image.url %>">
             <!-- <input type="hidden" name="listing[image][filename]" value="<%= listing.image.filename %>">
         </div> 
@@ -101,7 +101,7 @@
     <button type="submit" class="btn btn-dark edit-btn">Update Listing</button>
 </form>
     </div>
-</div>
+</div> 
 
 
 

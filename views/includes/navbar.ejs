@@ -1,27 +1,92 @@
+<style>
+    .btn-search {
+        background-color: #df3642;
+        color: white;
+        border-radius: 25px;
+        padding: 0 1rem;
+        height: 2.5rem;
+
+    }
+
+    .btn-search:hover {
+        background-color: #c42e39;
+        color: white;
+    }
+
+    .btn-search i {
+        display: inline;
+        margin-right: 0.5rem;
+    }
+
+    .search-inp {
+        padding: 0.5rem 3rem 0.5rem 4rem;
+        border-radius: 25px;
+    }
+
+    /* Search form behavior */
+    .search-form {
+        max-width: 400px;
+        width: 100%;
+        margin-left: 50px;
+        /* shifts form slightly to the right */
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+        .search-form {
+            margin-left: 0;
+            width: 100%;
+            margin-top: 0.5rem;
+        }
+    }
+</style>
+
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><i class="fa-solid fa-splotch"></i></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarNavAltMarkup"></button>
-            <!-- <span class="navbar-toggler-icon"></span> -->
-            <!-- </button> -->
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" href="/">Home</a>
-                    <a class="nav-link" href="/listings">All Listings</a>
-                    <a class="nav-link" href="/listings/new">Add new listing</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto">
-                        <% if(!currUser) {%>
-                        <a class="nav-link" href="/signup">Sign up</a>
-                        <a class="nav-link" href="/login">Log in</a>
-                        <% } %>
-                        <% if(currUser) {%>
-                        <a class="nav-link" href="/logout">Log out</a>
-                        <% } %>
-    
-                    </div>
+        <!-- Brand -->
+        <a class="navbar-brand" href="/listings"><i class="fa-solid fa-splotch"></i></a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Content -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Left -->
+            <div class="navbar-nav">
+                <a class="nav-link" href="/listings">Explore</a>
             </div>
+
+            <!-- Middle -->
+            <div class="d-flex justify-content-center flex-grow-1">
+                <form class="d-flex align-items-center search-form" role="search">
+  <input
+    class="form-control me-2 flex-shrink-1 search-inp"
+    type="search"
+    placeholder="Search destinations"
+    aria-label="Search"
+    style="width: auto; min-width: 200px;"
+  />
+  <button class="btn btn-search d-inline-flex align-items-center" type="submit">
+    <i class="fa-solid fa-magnifying-glass me-1"></i> Search
+  </button>
+</form>
+
+            </div>
+
+            <!-- Right -->
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new">Add your property here</a>
+                <% if (!currUser) { %>
+                    <a class="nav-link" href="/signup"><strong>Sign up</strong></a>
+                    <a class="nav-link" href="/login"><strong>Log in</strong></a>
+                    <% } %>
+                        <% if (currUser) { %>
+                            <a class="nav-link" href="/logout"><strong>Log out</strong></a>
+                            <% } %>
+            </div>
+        </div>
     </div>
-</nav>
+</nav> 
