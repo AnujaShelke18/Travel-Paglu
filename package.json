@@ -5,9 +5,9 @@
   "name": "majorproject",
   "version": "1.0.0",
   "main": "index.js",
-  "install": "npm install --legacy-peer-deps",
  "scripts": {
-  "test": "echo \"Error: no test specified\" && exit 1"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "install": "npm install --legacy-peer-deps"
   },
   "keywords": [],
   "author": "",
